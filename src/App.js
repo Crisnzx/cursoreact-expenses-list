@@ -1,4 +1,7 @@
-import Expenses from './components/Expenses';
+// this import is optional in the new versions of React
+import React from 'react';
+
+import Expenses from './components/Expenses/Expenses';
 
 function App() {
 
@@ -30,6 +33,13 @@ function App() {
 
   ];
 
+  // What is really happening behing the scenes:
+  /*
+  return React.createElement('div', {}, 
+  React.createElement('h2', {}, 'Let\'s get started!'),
+  React.createElement(Expenses, {items: expenses})
+  )
+  */
   return (
     <div>
       <h2>Let's get started!</h2>
