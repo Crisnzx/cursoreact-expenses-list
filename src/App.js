@@ -1,13 +1,12 @@
 // this import is optional in the new versions of React
-import React from 'react';
+import React, { useState } from 'react';
 
 import NewExpense from './components/NewExpense/NewExpense';
 import Expenses from './components/Expenses/Expenses';
 
 
 function App() {
-
-  const expenses = [
+  const DUMMY_EXPENSES = [
     {
       id: 'e1',
       title: 'Toilet Paper',
@@ -32,8 +31,9 @@ function App() {
       amount: 450,
       date: new Date(2021, 5, 12)
     }
-
+  
   ];
+
 
   // What is really happening behind the scenes:
   /*
@@ -43,14 +43,18 @@ function App() {
   )
   */
 
+  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+
   function addExpenseHandler(expense) {
-    console.log(expense);
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    })
   }
 
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler}/>
-      <Expenses items={expenses}/>
+      <Expenses expenses={expenses}/>
     </div>
   );
 }
