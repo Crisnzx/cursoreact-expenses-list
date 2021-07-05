@@ -1,7 +1,9 @@
 // this import is optional in the new versions of React
 import React from 'react';
 
+import NewExpense from './components/NewExpense/NewExpense';
 import Expenses from './components/Expenses/Expenses';
+
 
 function App() {
 
@@ -33,16 +35,21 @@ function App() {
 
   ];
 
-  // What is really happening behing the scenes:
+  // What is really happening behind the scenes:
   /*
   return React.createElement('div', {}, 
   React.createElement('h2', {}, 'Let\'s get started!'),
   React.createElement(Expenses, {items: expenses})
   )
   */
+
+  function addExpenseHandler(expense) {
+    console.log(expense);
+  }
+
   return (
     <div>
-      <h2>Let's get started!</h2>
+      <NewExpense onAddExpense={addExpenseHandler}/>
       <Expenses items={expenses}/>
     </div>
   );
