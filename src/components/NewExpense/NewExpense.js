@@ -29,7 +29,7 @@ function NewExpense(props) {
 
    return (
       <Card className="new-expense">
-         {!isOpen && <button onClick={openForm}>Add Expense</button>}
+         {!isOpen && <button className="single" onClick={openForm}>Add Expense</button>}
          {isOpen && <ExpenseForm
             onSubmitExpenseData={onSubmitExpenseDataHandler}
             closeForm={closeForm}

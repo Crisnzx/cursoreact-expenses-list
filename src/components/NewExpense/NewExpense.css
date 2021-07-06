@@ -19,6 +19,10 @@
    border-radius: 12px;
    margin-right: 1rem;
  }
+
+ .new-expense button.single {
+   margin: 0;
+ }
  
  .new-expense button:hover,
  .new-expense button:active {
